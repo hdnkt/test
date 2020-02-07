@@ -31,7 +31,13 @@ ALLOWED_HOSTS = [
     '*'  # https://docs.djangoproject.com/en/3.0/ref/settings/#std:setting-ALLOWED_HOSTS
 ]
 
-
+SECURE_HSTS_SECONDS = 100000
+SECURE_SSL_REDIRECT = True
+SECURE_HSTS_PRELOAD = True
+SECURE_REFERRER_POLICY = "no-referrer"
+SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
 # Application definition
 
 INSTALLED_APPS = [
