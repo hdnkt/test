@@ -23,7 +23,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = os.environ['DJANGO_SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ['NODE_ENV'] !== 'production'  # set True for testing, False for dev
+# set True for testing, False for dev
+DEBUG = os.environ['NODE_ENV'] !== 'production' 
 
 ALLOWED_HOSTS = [
     '*'  # https://docs.djangoproject.com/en/3.0/ref/settings/#std:setting-ALLOWED_HOSTS
