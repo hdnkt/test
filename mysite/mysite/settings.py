@@ -22,10 +22,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ['DJANGO_SECRET_KEY']
 
-print("os.environ")
-print(os.environ)
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False # set True for testing
+DEBUG = os.environ['NODE_ENV'] !== 'production'  # set True for testing, False for dev
 
 ALLOWED_HOSTS = [
     '*'  # https://docs.djangoproject.com/en/3.0/ref/settings/#std:setting-ALLOWED_HOSTS
@@ -34,7 +32,7 @@ ALLOWED_HOSTS = [
 SECURE_HSTS_SECONDS = 100000
 SECURE_SSL_REDIRECT = True
 SECURE_HSTS_PRELOAD = True
-SECURE_REFERRER_POLICY = "no-referrer"
+SECURE_REFERRER_POLICY = "origin"
 SECURE_HSTS_INCLUDE_SUBDOMAINS = True
 SESSION_COOKIE_SECURE = True
 CSRF_COOKIE_SECURE = True
