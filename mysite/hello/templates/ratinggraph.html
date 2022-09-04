@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="google-site-verification" content="EKjRFeitj4fkY6tcXgwD6JieN_J8hPiy8BLI89nieHU" />
+	<title>一度も冷えなかった{{name}}</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta http-equiv="Content-Language" content="ja">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<meta name="format-detection" content="telephone=no">
+
+	<link rel="stylesheet" type="text/css" href="//img.atcoder.jp/public/cfb85db/css/base.css">
+	<link rel="apple-touch-icon" href="//img.atcoder.jp/assets/atcoder.png">
+	<script src="//img.atcoder.jp/public/cfb85db/js/lib/jquery-1.9.1.min.js"></script>
+	<script src="//img.atcoder.jp/public/cfb85db/js/lib/bootstrap.min.js"></script>
+	<script src="//img.atcoder.jp/public/cfb85db/js/cdn/js.cookie.min.js"></script>
+	<script src="//img.atcoder.jp/public/cfb85db/js/cdn/moment.min.js"></script>
+	<script src="//img.atcoder.jp/public/cfb85db/js/cdn/moment_js-ja.js"></script>
+	<script>
+		var LANG = "ja";
+		var userScreenName = "hdnkt";
+		var csrfToken = "qxwbef9w4qM3npxeYapms8ShiqzBPK/tvhoYVLNLLMI="
+	</script>
+	<script src="//img.atcoder.jp/public/cfb85db/js/utils.js"></script>
+		
+		<link rel="stylesheet" href="//img.atcoder.jp/public/cfb85db/css/top/common.css">
+	
+	<script src="//img.atcoder.jp/public/cfb85db/js/base.js"></script>
+	<script src="//img.atcoder.jp/public/cfb85db/js/ga.js"></script>
+</head>
+
+<body>
+
+<script type="text/javascript">
+	var __pParams = __pParams || [];
+	__pParams.push({client_id: '468', c_1: 'atcodercontest', c_2: 'ClientSite'});
+</script>
+<script type="text/javascript" src="https://cdn.d2-apps.net/js/tr.js" async></script>
+
+<center>
+	<div class="col-md-9 col-sm-12">
+		
+			<h3>一度も冷えなかった{{name}}</h3>
+			これまで参加してきたAtCoderのコンテストのうち、冷えた（参加前と比べてレートが下がった）コンテストを全部なかったことにした場合のレート推移をグラフに表示します。
+			<br>
+			レートの計算は<a href= "https://qiita.com/anqooqie/items/92005e337a0d2569bdbd" >この記事</a>を参考にしました。
+			<br>
+			Rated考慮ボタンを追加(動作重め。2000以上か2000に近いような人は付けた方がいいかもしれません)2021/02/18
+			<br>
+			ツイートボタンを追加2021/02/18
+			<br>
+			バグ報告などは　Twitter:<a href= "https://twitter.com/nktkhide" >@nktkhide</a>にお願いします
+			<hr>
+
+			<form action="/vote/" method="post">
+				<label>ユーザー名</label>
+				{% csrf_token %}
+				<input type="text" name="username">
+				<input type="submit" value="表示">
+
+				<p>
+					Rated考慮(動作重め)：<input type="radio" name="sex" value="male" checked="checked">しない
+					<input type="radio" name="sex" value="female">する
+				</p>
+			</form>
+			{{error}}
+			
+<div class="mt-2 mb-2" style="line-height: 0;">
+<script src="//code.createjs.com/easeljs-0.8.2.min.js"></script>
+<link href="//fonts.googleapis.com/css?family=Squada+One" rel="stylesheet" type="text/css">
+<canvas id="ratingStatus" width="640" height="80"></canvas><br>
+<canvas id="ratingGraph" width="640" height="360"></canvas>
+<a id="rating-graph-expand" class="btn btn-link btn-xs visible-lg-inline"><span class="glyphicon glyphicon-resize-full" aria-hidden="true"></span></a><br>
+{{ final|json_script:"hello-data" }}
+<script>var rating_history = JSON.parse(document.getElementById('hello-data').textContent) ;</script>
+<script src="//img.atcoder.jp/public/cfb85db/js/rating-graph.js"></script>
+
+
+<div class="twitter">
+	　<a href="//twitter.com/share" class="twitter-share-button" data-text="実際の{{name}}のレートは{{real}}で、一度も冷えなかった{{name}}のレートは{{highest}}です。({{dist}}) #一度も冷えなかった" data-url="https://tarareba.herokuapp.com/result/{{name}}/{{r}}" data-lang="ja">
+	 Tweet
+	 </a>
+	</div>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+
+
+</center>
+
+</body>
+</html>

@@ -1,14 +1,25 @@
+from django.urls import path, include
+
 from django.contrib import admin
-from django.urls import include, path
-# from django.http import HttpResponse
-from django.shortcuts import render
 
+admin.autodiscover()
 
-def landingpage(request):
-    return render(request, 'index.html')
+import hello.views
+
+# To add a new path, first import the app:
+# import blog
+#
+# Then add the new path:
+# path('blog/', blog.urls, name="blog")
+#
+# Learn more here: https://docs.djangoproject.com/en/2.1/topics/http/urls/
 
 urlpatterns = [
-    path('', landingpage, name='landing'),
-    path('polls/', include('polls.urls')),
-    path('admin/', admin.site.urls),
+    path("", hello.views.index, name="index"),
+    path("db/", hello.views.db, name="db"),
+    path("admin/", admin.site.urls),
+    path("vote/",hello.views.vote),
+    path("result/<username>/",hello.views.result),
+    path("result/<username>/r",hello.views.resultr),
+    path("unchi",hello.views.fack),
 ]
